@@ -1,0 +1,63 @@
+
+.rules-container{
+    text-align: center;
+}
+
+button{
+    padding: 8px 2rem;
+    font-weight: bold;
+    border: 1px solid hsl(217, 16%, 45%);
+    border-radius: 7px;
+    background: none;
+    color: white;
+    position: absolute;
+    bottom : 2rem;
+    right: 2rem;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+button:hover{
+    background-color: white;
+    color: rgb(19, 44, 119);
+}
+.on{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.404);
+  
+}
+#rule-container{
+    opacity: 0;
+    display: none;
+}
+.on #rule-container{
+    display: inline-block;
+    opacity: 1;
+    background-color: white;
+    border-radius: 1rem;
+    width: 35%;
+    margin: auto;
+    padding: 1rem 2rem;
+    transition: opacity 0.5s;
+}
+.on #rule-mini-container{
+    display: flex;
+    justify-content: space-between;
+    
+    margin-bottom: 3rem;
+}
+h2{
+    font-size: 2rem;
+    color: black;
+}
+i{
+    font-size: 2rem;
+    cursor: pointer;
+}

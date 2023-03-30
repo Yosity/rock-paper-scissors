@@ -1,0 +1,44 @@
+
+#paper{
+    width: 60px;
+    height: 70px;
+    background: url("/images/icon-paper.svg");
+    background-size:100%;
+    background-repeat: no-repeat;
+
+}
+.Global-paperContainer{
+    border: 10px solid rgb(94, 36, 255);
+}
+#rock{
+    width: 60px;
+    height: 70px;
+    background: url("/images/icon-rock.svg");
+    background-size:100%;
+    background-repeat: no-repeat;
+
+}
+.Global-rockContainer{
+    border: 10px solid rgb(255, 201, 40);
+}
+#scissors{
+    width: 60px;
+    height: 70px;
+    background: url("/images/icon-scissors.svg");
+    background-size:100%;
+    background-repeat: no-repeat;
+    z-index: 999;
+}
+.Global-scissorsContainer{
+    border: 10px solid rgb(255, 74, 74);
+}
+
+.Global-paperContainer,
+.Global-rockContainer,
+.Global-scissorsContainer{
+    width: 185px;
+    border-radius: 8rem;
+    padding: 3rem;
+    background-color: white;
+    cursor: pointer;
+}

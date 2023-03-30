@@ -1,0 +1,42 @@
+
+.game-container{
+    position: relative;
+    width: clamp(400px,100%,600px);
+    height: 420px;
+    margin: auto;
+    position: relative;
+    background: url("bg-triangle.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+#rockContainer{
+    right: -1rem;
+    top: -15%; 
+}
+#scissorsContainer{
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -2rem;
+}
+
+#paperContainer:hover,
+#rockContainer:hover
+{
+    transform: scale(1.05);
+}
+#scissorsContainer:hover{
+    transform: translate(-50%) scale(1.05);
+}
+
+#paperContainer,
+#rockContainer,
+#scissorsContainer{
+    position: absolute; 
+    z-index: 998;
+    transition: transform 0.15s;
+}
+#paperContainer{
+    left: -1rem;
+    top: -15%;
+}
