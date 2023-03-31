@@ -163,6 +163,7 @@
 
 @media (max-width:900px) {
     .outcome-container{
+        opacity: 1;
         -webkit-animation: none;
                 animation: none;
         position: absolute;   
