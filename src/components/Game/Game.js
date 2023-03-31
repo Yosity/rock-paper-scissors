@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import "./Game.css"
 import Paper from "../Global/Paper";
 import Rock from "../Global/Rock";
@@ -7,42 +7,58 @@ import Result from "../Result/Result";
 import Header from "../Header/Header"
 
 const Game = (props) => {
-    const [humanPick,setHumanPick] = useState("");
-    const [score,setScore] = useState(0);
-    const options = ["r","p","s","r","p","s","r","p","s"]; // tripled the elements for more uncertainty in picking
-    let randomIndex = Math.floor(Math.random()*9);
-    let computerPick = options[randomIndex]
-    let outcome;
-  
-    //Game logic
-    if(humanPick === computerPick) {
-        outcome = "DRAW";
-     } else if(humanPick === "p") {
-        if(computerPick === "r") {
-           outcome = "YOU WIN";
-           setScore(score+1);
-        } else {
-           outcome = "YOU LOSE";
-           setScore(score-1);
-        }   
-     } else if(humanPick === "r") {
-        if(computerPick === "s") {
-           outcome = "YOU WIN";
-           setScore(score+1);
-        } else {
-           outcome = "YOU LOSE";
-           setScore(score-1);
-        }     
-     } else if(humanPick === "s") {
-        if(computerPick === "p") {
-           outcome = "YOU WIN";
-           setScore(score+1);
-        } else {
-           outcome = "YOU LOSE";
-           setScore(score-1);
-        }   
+   const [humanPick, setHumanPick] = useState("");
+   const [score, setScore] = useState(0);
+   const [outcome, setOutcome] = useState("");
+   const [computerPick, setComputerPick] = useState("");
+ 
+   const resetGame = () => {
+     setHumanPick("");
+   };
+   //Game logic
+   useEffect(() => {
+     const options = ["r", "p", "s"];
+     const randomIndex = Math.floor(Math.random() * 3);
+     const computerPick = options[randomIndex];
+ 
+     let outcome = "";
+     let roundScore = 0;
+ 
+     if (humanPick === computerPick) {
+       outcome = "DRAW";
+     } else if (humanPick === "p") {
+       if (computerPick === "r") {
+         outcome = "YOU WIN";
+         roundScore = 1;
+       } else {
+         outcome = "YOU LOSE";
+         roundScore = -1;
+       }
+     } else if (humanPick === "r") {
+       if (computerPick === "s") {
+         outcome = "YOU WIN";
+         roundScore = 1;
+       } else {
+         outcome = "YOU LOSE";
+         roundScore = -1;
+       }
+     } else if (humanPick === "s") {
+       if (computerPick === "p") {
+         outcome = "YOU WIN";
+         roundScore = 1;
+       } else {
+         outcome = "YOU LOSE";
+         roundScore = -1;
+       }
      }
-
+ 
+     setScore((score) => score + roundScore);
+     setOutcome(outcome);
+     setComputerPick(computerPick);
+ 
+   }, [humanPick]);
+   
+    
      // View Before we pick a choice
     if(humanPick === "")
     return(
@@ -61,11 +77,13 @@ const Game = (props) => {
     return(
         <div>
             <Header score = {score}/>
-            <Result  humanPick = {humanPick} outcome = {outcome} computerPick = {computerPick}/>
+            <Result  humanPick = {humanPick} outcome = {outcome} computerPick = {computerPick} refreshGame = {resetGame}/>
         </div>
     )
     }
 }
+
+
 
 
 

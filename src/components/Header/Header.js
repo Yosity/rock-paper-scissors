@@ -8,6 +8,7 @@ const Header = (props) =>{
             <h1>
                 rock <br /> paper <br />scissors
             </h1>
+            <h2 id="reminder">Remember, it's all <br />about luck ^.- </h2>
             <div className="score-container">
                 <h2>score</h2>
                 <p className="score">{props.score}</p>
