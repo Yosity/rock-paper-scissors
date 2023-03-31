@@ -12,6 +12,7 @@
      min-width: 600px;
      max-width: 1000px;
      margin: auto;
+     
 
 }
 .player-mask{
@@ -42,6 +43,47 @@
     position: relative;
     animation: appear 0.5s;
     animation-fill-mode: forwards;
+}
+.outcome-container{
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    animation: outcomeAppear 0.3s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes outcomeAppear {
+    from{
+        opacity: 0;
+        transform: scale(3);
+    }
+    to{
+        
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#outcome{
+    font-size: 2rem;
+    color: white;
+}
+#play-again{
+    background-color: transparent;
+    color:  white;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 13px 2rem;
+    transition: background-color 0.15s,color 0.15s;
+    cursor: pointer;
+}
+#play-again:hover{
+    color: red;
+    background-color: white;
 }
 @keyframes appear {
     from{

@@ -1,38 +1,44 @@
-import React, {useState} from "react";
-import Paper from "../Paper";
-import Rock from "../Rock";
-import Scissors from "../Scissors";
+import React from "react";
+import Paper from "../Global/Paper";
+import Rock from "../Global/Rock";
+import Scissors from "../Global/Scissors";
 import "./Result.css"
 
 const Result = (props) => {
+
     return(
         <div className="result-container">
             <div className="player-container">
                 <h2>YOU PICKED</h2>
                 <div className="button-container">
                     {
-                        () =>{
-                            switch(props.humanPick){
-                                case "p":
-                                    <Paper id = "resultChoice"/>
-                                    console.log("P");
-                                    break;
-                                case "r":
-                                    <Rock id = "resultChoice"/>
-                                    break;
-                                case "s":
-                                    <Scissors id = "resultChoice"/>
-                                    break;
-                            }
-                        }    
+                      props.humanPick === "p" && <Paper id ="resultChoice" handleClick= {()=>{return}}/>
+                    }
+                    {
+                    props.humanPick === "r" && <Rock id ="resultChoice" handleClick= {()=>{return}}/>}
+                    {
+                    props.humanPick === "s" && <Scissors id ="resultChoice" handleClick= {()=>{return}}/>
                     }
                     <div className="player-mask"></div>
                 </div>        
             </div>
+            <div className="outcome-container">
+                    <h2 id="outcome">{props.outcome}</h2>
+                    <button id="play-again">Play Again</button>
+            </div>
             <div className="player-container">
                 <h2>THE HOUSE PICKED</h2>
                 <div className="button-container">
-                    <Rock id = "resultChoice"/>
+                    
+                    {
+                    props.computerPick === "p" && <Paper id ="resultChoice" handleClick= {()=>{return}}/>
+                    }
+                    {
+                    props.computerPick === "r" && <Rock id ="resultChoice" handleClick= {()=>{return}}/>}
+                    {
+                    props.computerPick === "s" && <Scissors id ="resultChoice" handleClick= {()=>{return}}/>
+                    }
+                    
                     <div className="player-mask"></div>
                 </div>     
             </div>
