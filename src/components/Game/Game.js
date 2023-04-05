@@ -51,8 +51,10 @@ const Game = (props) => {
          roundScore = -1;
        }
      }
- 
-     setScore((score) => score + roundScore);
+     setTimeout(()=>{
+      setScore((score) => score + roundScore);
+     },1800)
+     
      setOutcome(outcome);
      setComputerPick(computerPick);
  
